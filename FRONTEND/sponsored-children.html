@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsored Children</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sponsored Children</h1>
+    </header>
+    <main>
+        <section class="children-list">
+            <h2>Sponsored Children List</h2>
+            <ul>
+                <!-- Children list items will be dynamically generated -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Orphanage Management System</p>
+    </footer>
+    <script>
+        // Assuming you have a frontend file where you want to fetch the sponsored children data
+
+// Function to fetch sponsored children data
+function fetchSponsoredChildren() {
+    fetch('http://localhost:8100/api/sponsored-children')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Process the received data, e.g., update UI
+            console.log(data); // Log the data received from the backend
+            // Update UI with the received data, for example:
+            // displaySponsoredChildren(data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            // Handle errors, e.g., display an error message on the UI
+        });
+}
+
+// Call the fetchSponsoredChildren function when the page loads or when necessary
+document.addEventListener('DOMContentLoaded', () => {
+    fetchSponsoredChildren();
+});
+
+    </script>
+</body>
+</html>
